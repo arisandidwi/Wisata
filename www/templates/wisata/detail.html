@@ -1,0 +1,103 @@
+<ion-view view-title="">
+
+<ion-content class="padding" ng-repeat="wisata in wisata">
+    <ion-refresher
+	pulling-text="Pull to refresh..."
+	on-refresh="showData()"></ion-refresher>
+    <ion-slide-box does-continue="true">
+   <ion-slide>
+      <div class = "box box1">
+         <img ng-src="http://equaliti.my.id/upload/wisata/{{wisata.image1}}" style="width: 100%; height: 50%">
+      </div>
+   </ion-slide>
+   <ion-slide>
+      <div class = "box box2">
+         <img ng-src="http://equaliti.my.id/upload/wisata/{{wisata.image2}}" style="width: 100%; height: 50%">
+      </div>
+   </ion-slide>
+    <ion-slide>
+      <div class = "box box3">
+         <img ng-src="http://equaliti.my.id/upload/wisata/{{wisata.image3}}" style="width: 100%; height: 50%">
+      </div>
+   </ion-slide>
+    <ion-slide>
+      <div class = "box box4">
+         <img ng-src="http://equaliti.my.id/upload/wisata/{{wisata.image4}}" style="width: 100%; height: 50%">
+      </div>
+   </ion-slide>
+    <ion-slide>
+      <div class = "box box5">
+         <img ng-src="http://equaliti.my.id/upload/wisata/{{wisata.image5}}" style="width: 100%; height: 50%">
+      </div>
+   </ion-slide>
+
+</ion-slide-box>
+    <!--<img ng-src="http://equaliti.my.id/upload/wisata/{{wisata.image1}}" style="width: 100%; height: 50%">-->
+    <div class="item item-text-wrap"  type="item"> <h1><font>{{wisata.nama}}</font></h1>
+	<font color="gray" size="2px">{{wisata.alamat}}</font>
+	</div>
+    <p>
+        <font size="2" color="gray" >Deskripsi : {{wisata.deskripsi}}</font>
+	<br>
+        <font size="2" color="gray" >Harga Tiket : {{wisata.harga_tiket}}</font>
+    </p>
+	<div id="map" lat="{{wisata.latitude}}" lng="{{wisata.longitude}}" zoom="13" map>
+    </div>
+	<button class="button button-calm button-block" ng-click="editModal()" ng-hide="wisata.harga_tiket==0">Pesan Tiket</button>
+    <button class="button button-calm button-block" ng-show="wisata.harga_tiket==0">Gratis</button>
+</ion-content>
+</ion-view>
+<script id="edit.html" type="text/ng-template">
+        <div class="modal">
+            <ion-header-bar class="bar-calm">
+                <button class="button button-icon icon ion-close" ng-click="batal()"></button>
+                <h1 class="title"> Pesan Tiket</h1>
+            </ion-header-bar>
+            <ion-content ng-repeat="wisata in wisata">
+                <form>
+                    <div class="list">
+                        <label class="item item-input">
+                        <span class="input-label">ID Wisata :</span>
+                            <input type="hidden" placeholder="{{wisata.id_wisata}}" ng-model="tujuan_wisata" ng-init="tujuan_wisata=wisata.id_wisata" init-from-form>
+                            <p>{{wisata.id_wisata}}</p>
+                        </label>
+                        <label class="item item-input">
+                            <input type="hidden" placeholder="{{wisata.nama}}" ng-init="nama_wisata=wisata.nama" ng-model="nama_wisata" init-from-form>
+                            <p>{{wisata.nama}}</p>
+                        </label>
+                        <label class="item item-input">
+                                    <input type="text" ng-model="p_nama" placeholder="Nama">
+                                </label>
+                                <label class="item item-input">
+                                    <input type="tel" ng-model="no_identitas" placeholder="Nomor Identitas: KTP/SIM">
+                                </label>
+                        <label class="item item-input">
+                                    <input type="tel" ng-model="tgl_wisata" placeholder="Hari/Bulan/Tahun">
+                                </label> 
+                         <!--<div class="card padding">
+                          <button class="button button-positive button-small" style="margin: 0;"
+                                  ng-click="openDatePicker()">Pilih Tanggal
+                          </button>
+                          <div class="item item-input padding-top" ng-model="tgl_wisata" value="{{selected | date:'dd - MMM - yy'}}"  ng-if="selected">{{selected | date:'dd - MMM - yy'}}</div>
+                        </div> -->
+                        
+                                <label class="item item-input">
+                                    <input type="tel" ng-model="jumlah_orang" placeholder="Jumlah Orang">
+                                </label>
+                            <label class="item item-input">
+                        <span class="input-label">Harga Tiket :</span>
+                            <input type="number" disabled="true" placeholder="{{wisata.harga_tiket}}" ng-model="harga" ng-init="harga=(wisata.harga_tiket) " init-from-form>
+                        </label>
+                                <label class="item item-input">
+                                    <input type="tel" ng-model="p_telp" placeholder="Nomor Telepon">
+                                </label>
+                                <label class="item item-input">
+                                    <input type="email" ng-model="p_email" placeholder="Email">
+                                </label>
+           
+                        <div class="spacer" style="height: 5px;"></div>
+        <button class="button button-balanced button-large" ng-click="edit(tujuan_wisata,nama_wisata,p_nama,no_identitas,tgl_wisata,jumlah_orang,harga,p_telp,p_email);" > Kirim</button>
+                </form>
+        </ion-content>
+        </div>
+</script>

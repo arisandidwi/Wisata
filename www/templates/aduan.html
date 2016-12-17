@@ -1,0 +1,27 @@
+<ion-view view-title="Keluhan">
+  <ion-content >
+      <form entype="multipart/form-data">
+	<div class="list">
+		<label class="item item-input">
+			<input type="text" ng-model="aduan.nama_aduan" placeholder="Nama">
+		</label>
+
+		<label class="item item-input">
+			<input type="email" ng-model="aduan.email" placeholder="Email">
+		</label>
+			<label class="item item-input">
+			<textarea placeholder="Masukkan pengaduan atau keluhan" ng-model="aduan.aduan"></textarea>
+		</label>
+		<!--<center>
+        <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" type="file " ng-model="aduan.foto" style="text-align: center"></center>
+		<button class="button button-clear ion-image button-royal" ng-click="choosePhoto()">
+        </button>
+		<button class="button button-clear ion-camera button-dark" ng-click="takePhoto();">
+        </button>-->
+        
+		<div class="spacer" style="height: 5px;"></div>
+        <button class="button button-calm button-block" ng-click="simpan();"> Kirim</button>
+	</div>
+    </form>
+  </ion-content>
+</ion-view>

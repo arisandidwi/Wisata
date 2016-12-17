@@ -1,0 +1,12 @@
+<ion-view view-title="">
+
+<ion-content class="padding" ng-repeat="peta in peta">
+    <ion-refresher
+	pulling-text="Pull to refresh..."
+	on-refresh="showData()"></ion-refresher>
+    
+	<div id="map1" lat="{{peta.latitude}}" lng="{{peta.longitude}}" zoom="13" map1>
+    </div>
+	
+</ion-content>
+</ion-view>

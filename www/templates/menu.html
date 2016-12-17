@@ -1,0 +1,56 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-calm">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+	  <!--<ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-earth" ui-sref="app.notifikasi" menu-toggle="right">
+        </button>
+      </ion-nav-buttons>-->
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent" animation="slide-in-up"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu  side="left">
+    <ion-header-bar class="bar-calm">
+      <h1 class="title"></h1>
+    </ion-header-bar>
+    <ion-content class="dark">
+      <ion-list>
+	  <ion-item menu-close href="#/app/playlists">
+          <i class="icon ion-android-clipboard"></i>
+          Wisata
+        </ion-item>
+        <ion-item menu-close href="#/app/peta">
+          <i class="icon ion-android-globe"></i>
+          Peta Wisata
+        </ion-item>
+        <!--<ion-item 
+		menu-close href="#/app/tiket_wisata">
+        <i class="icon ion-clipboard"></i>
+          Tiket Wisata
+        </ion-item>-->
+		<ion-item menu-close href="#/app/panggilan">
+          <i class="icon ion-android-call"></i>
+            Panggilan Darurat
+        </ion-item>
+        <ion-item menu-close href="#/app/aduan">
+        <i class="icon ion-ios-box-outline"></i>
+          Layanan Aduan
+        </ion-item>
+        <ion-item menu-close href="#/app/browse">
+          <i class="icon ion-ios-information-outline"></i>
+            Tentang
+        </ion-item>
+		
+      </ion-list>
+    </ion-content>
+	
+	
+  </ion-side-menu>
+</ion-side-menus>

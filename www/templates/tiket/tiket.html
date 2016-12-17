@@ -1,0 +1,38 @@
+<ion-view view-title="Pesan Tiket">
+<ion-content class="has-header">
+      <form>
+        <ion-list>
+            <label class="item item-input">
+                <input type="text" ng-model="tiket_wisata.p_nama" placeholder="Nama">
+            </label>
+            <label class="item item-input">
+                <input type="tel" ng-model="tiket_wisata.no_identitas" placeholder="Nomor Identitas: KTP/SIM">
+            </label>
+            <label class="item item-input">
+                <input type="text" ng-model="tiket_wisata.tujuan_wisata" placeholder="Tujuan Wisata">
+            </label>
+              <div class="card padding">
+      <button class="button button-positive button-block" style="margin: 0;"
+              ng-click="openDatePicker()">Open Date Picker Popup
+      </button>
+      <div class="item item-input padding-top" ng-model="tiket_wisata.tgl_wisata" ng-if="selected">{{selected | date:'longDate'}}</div>
+    </div>
+            <label class="item item-input">
+                <input type="tel" ng-model="tiket_wisata.jumlah_orang" placeholder="Jumlah Orang">
+            </label>
+            <label class="item item-input">
+                <input type="tel" ng-model="tiket_wisata.p_telp" placeholder="Nomor Telepon">
+            </label>
+            <label class="item item-input">
+                <input type="email" ng-model="tiket_wisata.p_email" placeholder="Email">
+            </label>
+           
+        </ion-list>
+     
+
+        <div class="spacer" style="height: 5px;"></div>
+        <button class="button button-balanced button-large" ng-click="simpan();" > Kirim</button>
+    </form>
+     
+</ion-content>
+</ion-view>
